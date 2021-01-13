@@ -304,6 +304,35 @@
             </releases>
         </repository>
     </repositories>
+
+    <!-- 使用分发管理将本项目打成jar包，直接上传到指定服务器 -->
+    <distributionManagement>
+        <!--正式版本-->
+        <repository>
+            <!-- nexus服务器中用户名：在settings.xml中<server>的id-->
+            <id>nexus</id>
+            <!-- 这个名称自己定义 -->
+            <name>release</name>
+            <!--  私服地址（project）    -->
+            <url>http://39.97.71.197:1181/repository/local-project/</url>
+        </repository>
+    </distributionManagement>
+
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>nexus</id>
+            <name>local-group</name>
+            <url>http://39.97.71.197:1181/repository/local-group/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </pluginRepository>
+    </pluginRepositories>
+
     <build>
         <plugins>
             <!-- 将源码一并打包 -->
